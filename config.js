@@ -1,18 +1,17 @@
-var config = {
+const config = {
   development: {
-    //mongodb connection settings
+    // mongodb connection settings
     database: {
-        host:   '127.0.0.1',
-        port:   '27017',
-        db:     'site_dev'
+      host: '127.0.0.1',
+      port: '27017',
+      db: 'site_dev',
     },
-    //server details
+    // server details
     server: {
-        host: '127.0.0.1',
-        port: '3000'
-    }
+      host: '127.0.0.1',
+      port: '3000',
+    },
   },
 };
-
 
 export default config;
