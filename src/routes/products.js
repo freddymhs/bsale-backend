@@ -1,11 +1,11 @@
 import express from 'express';
+import controllerProduct from '../controllers/controllerProduct.js';
 
 const productRoute = new express.Router();
 
 productRoute.get('/', (req, res) => {
-  res.json({ username: 'Flavio' });
+  res.json({ username: 'productos homepage' });
 });
-productRoute.get('/todos', (req, res) => { res.send('bievenido a mi pagina web'); }); // welcome
-productRoute.get('/categoria', (req, res) => { res.send('estos los son productos disponibles'); }); // products  [categoria,buscador]
-productRoute.get('/:id', (req, res) => { res.send('tu producto es este'); }); // products  [categoria,buscador]
+productRoute.get('/all', (req, res) => { res.send('estos los son productos disponibles'); }); // products  [categoria,buscador]
+productRoute.get('/bd', controllerProduct.allTheProducts); // revisando la base de datos
 export default productRoute;
