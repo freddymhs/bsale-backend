@@ -1,5 +1,5 @@
 const config = {
-  entorno = process.env.NODE_ENV || 'development',
+  // entorno = process.env.NODE_ENV ,
   development: {
 
     // mongodb connection settings
@@ -14,7 +14,7 @@ const config = {
     },
     // server details
     server: {
-      herokURL: `https://${process.env.npm_package_name}.herokuapp.com/`,
+      // herokURL: `https://${process.env.npm_package_name}.herokuapp.com/`,
       host: process.env.HOST || '127.0.0.1',
       port: process.env.PORT || '3000',
     },
