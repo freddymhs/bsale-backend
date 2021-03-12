@@ -12,8 +12,8 @@ const config = {
     },
     // server details
     server: {
-      host: '127.0.0.1',
-      port: '3000',
+      host: process.env.HOST || '127.0.0.1',
+      port: process.env.PORT || '3000',
     },
   },
 };
