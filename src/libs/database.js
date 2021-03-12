@@ -2,12 +2,14 @@
 import mysql from 'mysql2'; // mysql2 me permite trabajar con promesas
 import config from '../../config.js';
 
+const cfg = new config();
+
 // conexion to mysql
 const connection = mysql.createConnection({
-  host: config.development.database.host,
-  user: config.development.database.user,
-  password: config.development.database.password,
-  database: config.development.database.database,
+  host: cfg.cfgDB.host,
+  user: cfg.cfgDB.user,
+  password: cfg.cfgDB.password,
+  database: cfg.cfgDB.database,
 });
 
 let db;
