@@ -1,15 +1,15 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import config from './config.js'; // settings
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
-
 // instance app
 const app = express();
 app.use(morgan('combined')); // chekc extra data request
 app.use(express.json()); // to use json in my app
 app.use(express.urlencoded({ extended: false })); // undertand data from others forms
-
+app.use(cors);
 // routes
 // // app.use(router);
 // const basicRoute = require('./src/routes/index');
