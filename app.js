@@ -9,7 +9,7 @@ const app = express();
 app.use(morgan('combined')); // chekc extra data request
 app.use(express.json()); // to use json in my app
 app.use(express.urlencoded({ extended: false })); // undertand data from others forms
-app.use(cors);
+app.use(cors());
 // routes
 // // app.use(router);
 // const basicRoute = require('./src/routes/index');
