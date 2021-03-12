@@ -1,11 +1,12 @@
 // mysql
 import mysql from 'mysql2'; // mysql2 me permite trabajar con promesas
+import config from '../../config.js';
 
 const connection = mysql.createConnection({ // mysql
-  host: 'mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
-  user: 'bsale_test',
-  password: 'bsale_test',
-  database: 'bsale_test',
+  host: config.development.database.host,
+  user: config.development.database.user,
+  password: config.development.database.password,
+  database: config.development.database.database,
   // port: 3306
 });
 let db;
