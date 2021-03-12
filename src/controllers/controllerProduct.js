@@ -10,16 +10,16 @@ async function allTheProducts(req, res, next) {
 }
 async function filterProductByName(req, res, next) {
   let resultadoConsulta;
-
-  resultadoConsulta = await modelProduct.mysqlAllProducts().then(
-    ([rows]) => { resultadoConsulta = rows; },
-  );
-
+  const qt = await modelProduct.mysqlAllProducts()
+    .then(([rows]) => {
+      resultadoConsulta = rows;
+    });
   resultadoConsulta = resultadoConsulta.filter((item) => {
     if (item.name.toLowerCase().includes(req.params.formName.toLowerCase())) {
       return item;
     }
   });
+
   res.send(resultadoConsulta);
 }
 

@@ -7,6 +7,7 @@ const cfg = new config();
 
 indexRoute.get('/', (req, res) => {
   res.write(`<a href="${cfg.cfgServer.url}/api/product">    Api productos </a>`);
+  res.write(`<a href="${cfg.cfgServer.url}/api/product/pisco">    Api productos  /nombreproducto </a>`);
 });
 // indexRoute.all('*', (req, res) => {
 //   res.redirect('/');
