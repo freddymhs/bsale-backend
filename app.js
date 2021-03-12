@@ -25,9 +25,12 @@ app.listen(config.development.server.port, (err) => {
     console.log('==================');
     console.log('ON================');
     console.log('==================');
+    console.log(process.env.BaseUrl);
+
+    console.log(process.env.DATABASE_URL);
 
     console.log(`${process.env.BASE_URL}=========`);
-    console.log(`${process.env.NODE_ENV}=========`);
+    console.log(`${process.env.NODE_ENV}=========`); // producto //devel
     console.log(`${process.env.HOSTNAME}=========`);
     console.log(`${config.development.server.host}=========`);
     console.log(`${config.development.server.port}==============`);

@@ -1,6 +1,7 @@
 import database from '../libs/database.js';
 import modelProduct from '../models/modelProduct.js';
 
+// functions
 async function allTheProducts(req, res, next) {
   let resultadoConsulta;
   const qt = await modelProduct.mysqlAllProducts()
@@ -9,7 +10,6 @@ async function allTheProducts(req, res, next) {
     });
   res.send({ list: resultadoConsulta });
 }
-
 async function filterProductByName(req, res, next) {
   // res.send({ list: 'estos elementos son los mas parecidos' });
   let resultadoConsulta;
@@ -23,7 +23,6 @@ async function filterProductByName(req, res, next) {
       return item;
     }
   });
-
   res.send(resultadoConsulta);
 }
 
