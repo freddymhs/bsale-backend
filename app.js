@@ -21,18 +21,12 @@ app.listen(config.development.server.port, (err) => {
   if (err) {
     console.log(`error${err}`);
   } else {
-    console.log('RUNNING===========');
-    console.log('==================');
-    console.log('ON================');
-    console.log('==================');
-    console.log(process.env.BaseUrl);
-
-    console.log(process.env.DATABASE_URL);
-
-    console.log(`${process.env.BASE_URL}=========`);
-    console.log(`${process.env.NODE_ENV}=========`); // producto //devel
-    console.log(`${process.env.HOSTNAME}=========`);
-    console.log(`${config.development.server.host}=========`);
-    console.log(`${config.development.server.port}==============`);
+    console.log('RUNNING=======================================');
+    console.log('==============================================');
+    console.log('ON============================================');
+    console.log('==============================================');
+    console.log(`${config.development.server.herokURL}==========`);
+    console.log(`${config.development.server.host}=====================================`);
+    console.log(`${config.development.server.port}==========================================`);
   }
 });
