@@ -23,9 +23,9 @@ function production() {
       database: 'bsale_test',
     },
     cfgServer: {
-      url: `https://${process.env.npm_package_name}.herokuapp.com/`,
+      url: `https://${process.env.npm_package_name}.herokuapp.com`,
       host: process.env.HOST,
-      port: process.env.PORT,
+      port: process.env.PORT || 3001,
     },
   };
 }

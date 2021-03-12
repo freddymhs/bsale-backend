@@ -4,9 +4,9 @@ import config from '../../config.js';
 const indexRoute = new express.Router();
 
 const cfg = new config();
+
 indexRoute.get('/', (req, res) => {
-  res.write(`<a href="${cfg.cfgServer.url}:${cfg.cfgServer.port}/api/product">
-  ${cfg.cfgServer.host}:${cfg.cfgServer.port}/api/product  </a>  `);
+  res.write(`<a href="${cfg.cfgServer.url}/api/product">    Api productos </a>`);
 });
 // indexRoute.all('*', (req, res) => {
 //   res.redirect('/');
