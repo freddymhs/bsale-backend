@@ -1,5 +1,5 @@
 import express from 'express';
-import Config from '../../Config.js';
+import Config from '../../config.js';
 
 const indexRoute = new express.Router();
 const cfg = new Config();

@@ -1,6 +1,6 @@
 // mysql
 import mysql from 'mysql2'; // mysql2 me permite trabajar con promesas
-import Config from '../../Config.js';
+import Config from '../../config.js';
 
 const cfg = new Config();
 
