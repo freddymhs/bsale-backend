@@ -7,18 +7,19 @@ import Config from './Config.js'; // settings
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
 
+const cfg = new Config();
 /* setup swagger docs */
 const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'APi Rest Productos Bsale',
-      version: '0.0.1',
-      description: 'created to interact with a database and return data to clients',
+      title: process.env.npm_package_name,
+      version: process.env.npm_package_version,
+      description: process.env.npm_package_description,
     },
     servers: [
       {
-        url: 'http://localhost:3000/',
+        url: cfg.cfgServer.url,
       },
     ],
   },
@@ -44,7 +45,6 @@ app.all('*', (req, res) => {
 });
 
 /* run server */
-const cfg = new Config();
 app.listen(cfg.cfgServer.port, (err) => {
   if (err) {
     console.log(`error-${err}`);
