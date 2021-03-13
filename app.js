@@ -6,7 +6,7 @@ import swaggerJsDoc from 'swagger-jsdoc';
 // import config from './config.js'; // settings
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
-import config from './config';
+import config from './config.js';
 
 const cfg = new config();
 
