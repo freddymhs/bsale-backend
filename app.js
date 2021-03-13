@@ -7,6 +7,7 @@ import Config from './config.js';
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
 
+/* config to development and production */
 const cfg = new Config();
 
 /* setup swagger docs */
@@ -14,13 +15,13 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 's',
-      version: 's',
-      description: 'sda',
+      title: process.env.npm_package_name,
+      version: process.env.npm_package_version,
+      description: process.env.npm_package_description,
     },
     servers: [
       {
-        url: 'qt',
+        url: cfg.cfgServer.url,
       },
     ],
   },
