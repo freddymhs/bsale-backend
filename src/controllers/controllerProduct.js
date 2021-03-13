@@ -3,10 +3,16 @@ import modelProduct from '../models/modelProduct.js';
 
 // functions
 async function allTheProducts(req, res, next) {
-  res.send({
-    list: await modelProduct.mysqlAllProducts()
-      .then(([rows]) => rows),
-  });
+  let resultadoConsulta;
+  const qt = await modelProduct.mysqlAllProducts()
+    .then(([rows]) => {
+      resultadoConsulta = rows;
+    });
+  res.send(resultadoConsulta);
+  // res.send({
+  //   list: await modelProduct.mysqlAllProducts()
+  //     .then(([rows]) => rows),
+  // });
 }
 async function filterProductByName(req, res, next) {
   let resultadoConsulta;
