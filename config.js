@@ -1,4 +1,5 @@
-function desarrollo() {
+/* function that returns an object to development enviroment */
+function development() {
   return {
     cfgDB: {
       host: 'mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com',
@@ -7,13 +8,14 @@ function desarrollo() {
       database: 'bsale_test',
     },
     cfgServer: {
-      url: 'http://localhost',
+      url: 'http://localhost:3000',
       host: '127.0.0.1',
       port: '3000',
     },
   };
 }
 
+/* function that returns an object to production enviroment */
 function production() {
   return {
     cfgDB: {
@@ -25,22 +27,23 @@ function production() {
     cfgServer: {
       url: `https://${process.env.npm_package_name}.herokuapp.com`,
       host: process.env.HOST,
-      port: process.env.PORT || 3001,
+      port: process.env.PORT,
     },
   };
 }
 
-function config() {
+/* main funciton that return and use the correct enviroments parameters */
+function Config() {
   switch (process.env.NODE_ENV) {
     case 'development':
-      return desarrollo();
+      return development();
 
     case 'production':
       return production();
 
     default:
-      return desarrollo();
+      return development();
   }
 }
 
-export default config;
+export default Config;

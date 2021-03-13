@@ -1,8 +1,8 @@
 // mysql
 import mysql from 'mysql2'; // mysql2 me permite trabajar con promesas
-import config from '../../config.js';
+import Config from '../../Config.js';
 
-const cfg = new config();
+const cfg = new Config();
 
 // conexion to mysql
 const connection = mysql.createConnection({

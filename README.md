@@ -1,11 +1,17 @@
-backend
+# https://bsale-backend.herokuapp.com/
 
-- hacer
-[x] despliega productos agrupados por categoria
-[x] buscador de productos por nombre 
+## backend
 
-- opcional
-buscar por atributos
-ordenar productos por alguna caracteristica
-paginacion
-etc...
+- creado en nodejs 
+
+- requisitos  
+[x] despliega productos agrupados por categoria  
+[x] buscador de productos por nombre   
+
+- opcionales
+buscar por atributos  
+ordenar productos por alguna caracteristica  
+paginacion  
+etc...  
+
+
