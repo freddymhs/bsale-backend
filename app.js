@@ -3,11 +3,13 @@ import morgan from 'morgan';
 import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
-import config from './Config.js'; // settings
+// import config from './config.js'; // settings
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
+import config from './config';
 
 const cfg = new config();
+
 /* setup swagger docs */
 const options = {
   definition: {
@@ -19,7 +21,7 @@ const options = {
     },
     servers: [
       {
-        url: cfg.cfgServer.url,
+        url: 'qt',
       },
     ],
   },

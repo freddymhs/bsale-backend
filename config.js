@@ -33,7 +33,7 @@ function production() {
 }
 
 /* main funciton that return and use the correct enviroments parameters */
-function Config() {
+function config() {
   switch (process.env.NODE_ENV) {
     case 'development':
       return development();
@@ -46,4 +46,4 @@ function Config() {
   }
 }
 
-export default Config;
+export default config;
