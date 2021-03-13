@@ -5,8 +5,8 @@
   "description": "created to interact with a database and return data to a clients",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development   nodemon ./app.js",
-    "start": "NODE_ENV=production  node    ./app.js"
+    "dev": "NODE_ENV=development   nodemon app.js",
+    "start": "NODE_ENV=production  node    app.js"
   },
   "keywords": [],
   "author": "",

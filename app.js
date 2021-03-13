@@ -7,7 +7,9 @@ import Config from './Config.js'; // settings
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
 
+/* config production / development enviroments */
 const cfg = new Config();
+
 /* setup swagger docs */
 const options = {
   definition: {
