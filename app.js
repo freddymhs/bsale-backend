@@ -3,12 +3,11 @@ import morgan from 'morgan';
 import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
-// import config from './config.js'; // settings
+import Config from './config.js';
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
-import config from './config.js';
 
-const cfg = new config();
+const cfg = new Config();
 
 /* setup swagger docs */
 const options = {

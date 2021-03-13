@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "NODE_ENV=development   nodemon ./app.js",
-    "start": "NODE_ENV=production  node    app.js"
+    "start": "NODE_ENV=production  node    ./app.js"
   },
   "keywords": [],
   "author": "",
