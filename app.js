@@ -21,7 +21,7 @@ const options = {
     },
     servers: [
       {
-        url: cfg.cfgServer.url,
+        // url: cfg.cfgServer.url,
       },
     ],
   },
@@ -57,8 +57,8 @@ app.listen(cfg.cfgServer.port, (err) => {
     console.log('==================');
     console.log('ON================');
     console.log('==================');
-    console.log(`${cfg.cfgServer.url}==`);
-    console.log(`${cfg.cfgServer.host}=========`);
-    console.log(`${cfg.cfgServer.port}==============`);
+    // console.log(`${cfg.cfgServer.url}==`);
+    // console.log(`${cfg.cfgServer.host}=========`);
+    // console.log(`${cfg.cfgServer.port}==============`);
   }
 });
