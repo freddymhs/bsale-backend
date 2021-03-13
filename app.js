@@ -1,33 +1,12 @@
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
-import swaggerUI from 'swagger-ui-express';
-import swaggerJsDoc from 'swagger-jsdoc';
 import Config from './config.js';
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
 
 /* config to development and production */
 const cfg = new Config();
-
-/* setup swagger docs */
-const options = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: process.env.npm_package_name,
-      version: process.env.npm_package_version,
-      description: process.env.npm_package_description,
-    },
-    servers: [
-      {
-        url: cfg.cfgServer.url,
-      },
-    ],
-  },
-  apis: ['./src/routes/*.js', './src/models/*.js'],
-};
-const specs = swaggerJsDoc(options);
 
 /* initialization */
 const app = express();
@@ -41,7 +20,6 @@ app.use(cors()); // allow share
 /* routes */
 app.use('/', indexRoute);
 app.use('/api/product', productRoute);
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
 app.all('*', (req, res) => {
   res.redirect('/');
 });
