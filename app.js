@@ -3,25 +3,23 @@ import morgan from 'morgan';
 import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
-import Config from './Config.js'; // settings
+import config from './Config.js'; // settings
 import indexRoute from './src/routes/index.js';
 import productRoute from './src/routes/products.js';
 
-/* config production / development enviroments */
-const cfg = new Config();
-
+const cfg = new config();
 /* setup swagger docs */
 const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: process.env.npm_package_name,
-      version: process.env.npm_package_version,
-      description: process.env.npm_package_description,
+      title: 's',
+      version: 's',
+      description: 'sda',
     },
     servers: [
       {
-        // url: cfg.cfgServer.url,
+        url: cfg.cfgServer.url,
       },
     ],
   },
@@ -57,8 +55,8 @@ app.listen(cfg.cfgServer.port, (err) => {
     console.log('==================');
     console.log('ON================');
     console.log('==================');
-    // console.log(`${cfg.cfgServer.url}==`);
-    // console.log(`${cfg.cfgServer.host}=========`);
-    // console.log(`${cfg.cfgServer.port}==============`);
+    console.log(`${cfg.cfgServer.url}==`);
+    console.log(`${cfg.cfgServer.host}=========`);
+    console.log(`${cfg.cfgServer.port}==============`);
   }
 });
