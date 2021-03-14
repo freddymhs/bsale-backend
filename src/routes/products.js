@@ -44,6 +44,6 @@ productRoute.get('/', controllerProduct.allTheProducts);
  *               items:
  *                 $ref: '#/components/schemas/product'
  */
-productRoute.get('/:formName', controllerProduct.filterProductByName); //  [categoria,buscador]
+productRoute.get('/:formName', controllerProduct.filteredByName);
 
 export default productRoute;

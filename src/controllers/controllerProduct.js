@@ -1,33 +1,29 @@
-import database from '../libs/database.js';
 import modelProduct from '../models/modelProduct.js';
 
-// functions
+/* return to clients the result from model/querys */
 async function allTheProducts(req, res, next) {
-  let resultadoConsulta;
-  const qt = await modelProduct.mysqlAllProducts()
-    .then(([rows]) => {
-      resultadoConsulta = rows;
-    });
-  res.send(resultadoConsulta);
-  // res.send({
-  //   list: await modelProduct.mysqlAllProducts()
-  //     .then(([rows]) => rows),
-  // });
-}
-async function filterProductByName(req, res, next) {
-  let resultadoConsulta;
-  const qt = await modelProduct.mysqlAllProducts()
-    .then(([rows]) => {
-      resultadoConsulta = rows;
-    });
-  resultadoConsulta = resultadoConsulta.filter((item) => {
-    if (item.name.toLowerCase().includes(req.params.formName.toLowerCase())) {
-      return item;
-    }
-  });
+  const resQuery = await modelProduct.mysqlAllProducts();
 
-  res.send(resultadoConsulta);
+  if (resQuery.sqlState && resQuery.sqlMessage && resQuery.errno) {
+    res.status(500);
+    res.send(resQuery);
+  } else {
+    res.status(200);
+    res.send(resQuery);
+  }
+}
+
+async function filteredByName(req, res, next) {
+  const resQuery = await modelProduct.filteredProductsByName(req.params.formName);
+
+  if (resQuery.sqlState && resQuery.sqlMessage && resQuery.errno) {
+    res.status(500);
+    res.send(resQuery);
+  } else {
+    res.status(200);
+    res.send(resQuery);
+  }
 }
 
 let controllerProduct;
-export default controllerProduct = { allTheProducts, filterProductByName };
+export default controllerProduct = { allTheProducts, filteredByName };

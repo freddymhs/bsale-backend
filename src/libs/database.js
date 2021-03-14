@@ -12,5 +12,13 @@ const connection = mysql.createConnection({
   database: cfg.cfgDB.database,
 });
 
+connection.connect((err) => {
+  if (err) {
+    console.log('Error connecting to DB');
+    return;
+  }
+  console.log('Connection established');
+});
+
 let db;
 export default db = { connection };

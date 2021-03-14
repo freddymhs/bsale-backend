@@ -47,3 +47,7 @@ function config() {
 }
 
 export default config;
+
+// mysql -u "bsale_test" -p  -h mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com
+//
+// SELECT product.id , product.name , product.url_image , product.price , product.discount , category.name as category FROM product INNER JOIN category ON category.id = product.category;

@@ -32,13 +32,63 @@ import db from '../libs/database.js';
  *         url_image: https://picsum.photos/200/300/
  *         price: 2900
  *         discount: 90
- *         category: 1
+ *         category: "naturales"
  */
 
-// querys
 async function mysqlAllProducts() {
-  return db.connection.promise().query('select * from product order by category');
+  try {
+    let resultadoConsulta;
+    await db.connection.promise().query('SELECT product.id , product.name , product.url_image , product.price , product.discount , category.name as category FROM product INNER JOIN category ON category.id = product.category order by category')
+      .then(([rows]) => {
+        resultadoConsulta = rows;
+      });
+
+    return resultadoConsulta;
+  } catch (err) {
+    return err;
+  }
+}
+
+async function filteredProductsByName(paramName) {
+  try {
+    let resultadoConsulta;
+    await db.connection.promise().query('SELECT product.id , product.name , product.url_image , product.price , product.discount , category.name as category FROM product INNER JOIN category ON category.id = product.category order by category')
+      .then(([rows]) => {
+        resultadoConsulta = rows;
+      });
+
+    resultadoConsulta = resultadoConsulta.filter((item) => {
+      if (item.name.toLowerCase().includes(paramName.toLowerCase())) {
+        return item;
+      }
+    });
+    return resultadoConsulta;
+  } catch (err) {
+    return err;
+  }
+}
+
+async function filteredProductsByPrice() {
+  const min = 1000;
+  const max = 1300;
+  try {
+    let resultadoConsulta;
+    await db.connection.promise().query('SELECT product.id , product.name , product.url_image , product.price , product.discount , category.name as category FROM product INNER JOIN category ON category.id = product.category order by category')
+      .then(([rows]) => {
+        resultadoConsulta = rows;
+      });
+
+    resultadoConsulta = resultadoConsulta.filter((item) => {
+      if (item.price > min && item.price < max) {
+        return item;
+      }
+    });
+
+    return resultadoConsulta;
+  } catch (err) {
+    return err;
+  }
 }
 
 let modelProduct;
-export default modelProduct = { mysqlAllProducts };
+export default modelProduct = { mysqlAllProducts, filteredProductsByName, filteredProductsByPrice };

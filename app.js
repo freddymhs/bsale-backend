@@ -17,9 +17,10 @@ app.use(express.json()); // to use json in my app
 app.use(express.urlencoded({ extended: false })); // undertand data from others forms
 app.use(cors()); // allow share
 
-/* routes */
+/* the main routes */
 app.use('/', indexRoute);
 app.use('/api/product', productRoute);
+/* case route no exist */
 app.all('*', (req, res) => {
   res.redirect('/');
 });

@@ -5,6 +5,7 @@ import specs from '../../swagger.js';
 
 const indexRoute = new express.Router();
 const cfg = new Config();
+
 /**
  * @swagger
  * /:
